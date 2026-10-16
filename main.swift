@@ -8,7 +8,7 @@ private final class MenuBarContentView: NSView {
     var remaining: Int?
     var percentText = "…"
     var needsAttention = false
-    private let nameFont = NSFont.menuBarFont(ofSize: 0)
+    private let nameFont = NSFont.systemFont(ofSize: 11, weight: .regular)
     private let percentFont = NSFont.monospacedDigitSystemFont(ofSize: 11, weight: .medium)
     private let barWidth: CGFloat = 56
 
