@@ -10,10 +10,10 @@ private final class MenuBarContentView: NSView {
     var needsAttention = false
     private let nameFont = NSFont.systemFont(ofSize: 11, weight: .regular)
     private let percentFont = NSFont.monospacedDigitSystemFont(ofSize: 11, weight: .medium)
-    private let barWidth: CGFloat = 56
+    private let barWidth: CGFloat = 80
 
     var label: String { needsAttention ? "Codex !" : "Codex" }
-    var preferredWidth: CGFloat { ceil((label as NSString).size(withAttributes: [.font: nameFont]).width) + 8 + barWidth + 12 }
+    var preferredWidth: CGFloat { ceil((label as NSString).size(withAttributes: [.font: nameFont]).width) + 4 + barWidth + 12 }
     override var allowsVibrancy: Bool { true }
 
     // The system status button retains menu handling and its native highlight.
@@ -32,7 +32,7 @@ private final class MenuBarContentView: NSView {
         let nameSize = (label as NSString).size(withAttributes: nameAttributes)
         (label as NSString).draw(at: NSPoint(x: 6, y: (bounds.height - nameSize.height) / 2), withAttributes: nameAttributes)
 
-        let trackRect = NSRect(x: 6 + ceil(nameSize.width) + 8, y: (bounds.height - 18) / 2, width: barWidth, height: 18)
+        let trackRect = NSRect(x: 6 + ceil(nameSize.width) + 4, y: (bounds.height - 18) / 2, width: barWidth, height: 18)
         let track = NSBezierPath(roundedRect: trackRect, xRadius: 9, yRadius: 9)
         let highContrast = NSWorkspace.shared.accessibilityDisplayShouldIncreaseContrast
         NSColor.black.withAlphaComponent(dark ? 0.24 : 0.06).setFill()
